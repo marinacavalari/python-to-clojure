@@ -2,13 +2,13 @@ import sys
 import os
 import subprocess
 import json
-from subprocess import call, check_output
+import requests
 
 EXPORT_PROFILE = "primary"
 IMPORT_PROFILE = "secondary"
 
-import requests
-import json
+
+
 
 headers = {"Authorization" : "Bearer your_token_here"}
 
