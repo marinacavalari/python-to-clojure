@@ -9,9 +9,6 @@
 
 (def host-primary "https://primary.cloud.databricks.com")
 
-(defn get-clusters [host token]
-  (databricks-config/cluster-list token host))
-
 (def create-cluster-template
   {:num_workers 0
    :autoscale {:min_workers 0 :max_workers 0}
@@ -38,4 +35,4 @@
   (->> (generate-cluster-configs clusters)
        (map #(databricks-config/create-cluster new-account-token host %))))
 
-(migrate-clusters (get-clusters host-primary primary) secondary host-secondary)
+(migrate-clusters (databricks-config/cluster-list host-primary primary) secondary host-secondary)
