@@ -9,11 +9,9 @@
 
 (def endpoints-request
   {:clusters/create            {:method      :post
-                                :uri         "/api/2.0/clusters/create"
-                                :response-fn :cluster_id}
+                                :uri         "/api/2.0/clusters/create"}
    :clusters/list              {:method      :get
-                                :uri         "/api/2.0/clusters/list"
-                                :response-fn :clusters}})
+                                :uri         "/api/2.0/clusters/list"}})
 
 (defn with-full-url [{:keys [uri host] :as request-map} context]
   (let [resolved-uri (s-parser/render uri context)]
